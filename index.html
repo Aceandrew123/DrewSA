@@ -258,19 +258,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<script src="assets/js/main.js"></script>
 
 		<script>
-  const key1 = "name";
-  const key2 = "name@email.com";
+  const params = new URLSearchParams(window.location.search);
 
-  const urlParams = `?key1=${encodeURIComponent(key1)}&key2=${encodeURIComponent(key2)}`;
+  const key1 = params.get('key1');
+  const key2 = params.get('key2');
 
-  if (!window.location.search.includes("key1=") && !window.location.search.includes("key2=")) {
-    window.location.href = window.location.origin + window.location.pathname + urlParams;
+  if (key1 && key2) {
+    console.log("key1:", key1); 
+    console.log("key2:", key2);  
+  } else {
+    console.log("Parameters not found in the URL");
   }
-
-		const params = new URLSearchParams(window.location.search);
-                const decodedKey2 = decodeURIComponent(params.get('key2'));
-		console.log(decodedKey2);	
-			
 </script>
 
 	</body>
