@@ -258,18 +258,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<script src="assets/js/main.js"></script>
 
 		<script>
-  // Define the query parameters
   const key1 = "name";
   const key2 = "name@email.com";
 
-  // Construct the new URL with query parameters
   const urlParams = `?key1=${encodeURIComponent(key1)}&key2=${encodeURIComponent(key2)}`;
 
-  // Check if the current URL already contains these parameters
   if (!window.location.search.includes("key1=") && !window.location.search.includes("key2=")) {
-    // Redirect to the new URL
     window.location.href = window.location.origin + window.location.pathname + urlParams;
   }
+
+		const params = new URLSearchParams(window.location.search);
+                const decodedKey2 = decodeURIComponent(params.get('key2'));
+		console.log(key2);	
+			
 </script>
 
 	</body>
